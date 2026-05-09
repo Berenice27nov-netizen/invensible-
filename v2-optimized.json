@@ -1,0 +1,119 @@
+{
+  "version": "2.0-optimized",
+  "description": "Reglas HCC optimizadas para reducir lag en conexiones POST",
+  "global_config": {
+    "enable": true,
+    "compression": "gzip",
+    "connection_pool_size": 10,
+    "request_timeout_ms": 5000,
+    "response_cache_enabled": true,
+    "cache_ttl_ms": 1000,
+    "async_processing": true,
+    "thread_pool_size": 4
+  },
+  "rules": [
+    {
+      "name": "NO_RECOIL_100_V14_FAST",
+      "priority": 1,
+      "matchField": "url",
+      "matchValue": "com.dts.freefire.physics",
+      "type": "regex",
+      "action": "body",
+      "field": "body",
+      "async": true,
+      "cache_key": "physics_config",
+      "optimizations": {
+        "use_lookup_table": true,
+        "batch_replacements": true,
+        "stream_processing": true
+      },
+      "replacements": [
+        {
+          "pattern": "\"UmpRecoil\":\\s*[\\d.]+",
+          "replacement": "\"UmpRecoil\": 5.0",
+          "scope": "physics"
+        },
+        {
+          "pattern": "\"MaxSpread\":\\s*[\\d.]+",
+          "replacement": "\"MaxSpread\": 5.0",
+          "scope": "physics"
+        },
+        {
+          "pattern": "\"AimFriction\":\\s*[\\d.]+",
+          "replacement": "\"AimFriction\": 5.0",
+          "scope": "physics"
+        }
+      ]
+    },
+    {
+      "name": "PC_Movement_Sync_Bypass_OPTIMIZED",
+      "priority": 2,
+      "action": "modify_damage_calc",
+      "trigger": "on_state_change",
+      "async": true,
+      "debounce_ms": 100,
+      "parameters": {
+        "posture": "prone_to_stand",
+        "value_onset": "-500",
+        "sync_rate": "instant"
+      },
+      "network_config": {
+        "tcp_no_delay": true,
+        "keepalive_interval_ms": 30000,
+        "buffer_size_kb": 64,
+        "use_binary_protocol": true
+      }
+    },
+    {
+      "name": "TELA_MAGNET_CREA_TU_MAPA_FAST",
+      "priority": 3,
+      "matchField": "url",
+      "matchValue": "com.dts.freefire.(physics|weapon|config|item)",
+      "type": "regex",
+      "action": "body",
+      "field": "body",
+      "async": true,
+      "cache_key": "magnet_config",
+      "optimizations": {
+        "parallel_regex": true,
+        "incremental_processing": true
+      },
+      "replacements": [
+        {
+          "pattern": "\"HeadRadius\":\\s*[\\d.]+",
+          "replacement": "\"HeadRadius\": 280.0",
+          "scope": "collision"
+        },
+        {
+          "pattern": "\"BodyRadius\":\\s*[\\d.]+",
+          "replacement": "\"BodyRadius\": 700.0",
+          "scope": "collision"
+        },
+        {
+          "pattern": "\"AimFriction\":\\s*[\\d.]+",
+          "replacement": "\"AimFriction\": 700.0",
+          "scope": "input"
+        }
+      ]
+    }
+  ],
+  "performance_settings": {
+    "max_regex_complexity": 100,
+    "response_size_limit_kb": 2048,
+    "enable_response_caching": true,
+    "enable_connection_reuse": true,
+    "enable_request_batching": true,
+    "batch_window_ms": 50,
+    "enable_response_compression": true,
+    "compression_level": 6,
+    "enable_lazy_loading": true,
+    "enable_memory_pooling": true
+  },
+  "network_optimization": {
+    "http2_enabled": true,
+    "multiplexing": true,
+    "header_compression": true,
+    "dns_cache_ttl_ms": 300000,
+    "request_coalescing": true
+  }
+}
