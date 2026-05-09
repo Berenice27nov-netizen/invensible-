@@ -1,0 +1,13 @@
+{
+  "rules" : [{
+    "action" : "body",
+    "matchField" : "url",
+    "matchValue" : "com.dts.freefire.*(physics|weapon|config)",
+    "name" : "NO_RECOIL_100_V14",
+    "type" : "regex",
+    "field" : "body",
+    "value" : "s/\"UmpRecoil\":\\s*[\\d.]+/\"UmpRecoil\": 0.0/g; s/\"MaxSpread\":\\s*[\\d.]+/\"MaxSpread\": 0.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 0.0/g"
+  }],
+  "enable" : true,
+  "name" : "FLUORITE_RECOIL_ZERO"
+}
