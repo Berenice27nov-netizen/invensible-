@@ -1,1 +1,2 @@
 ssh-keygen -kf revocation_file -u ~/.ssh/id_ed25519.pub
+ssh-keygen -kf revoked_keys -u ~/.ssh/id_ed25519.pub
