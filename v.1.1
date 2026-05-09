@@ -1,0 +1,13 @@
+{
+  "rules" : [{
+    "action" : "body",
+    "matchField" : "url",
+    "matchValue" : "com.dts.freefire.*(physics|weapon|config)",
+    "name" : "DECLA_RED_V14",
+    "type" : "regex",
+    "field" : "body",
+    "value" : "s/\"HeadRadius\":\\s*[\\d.]+/\"HeadRadius\": 180.0/g; s/\"BodyRadius\":\\s*[\\d.]+/\"BodyRadius\": 10.0/g; s/\"TouchSensitivity\":\\s*[\\d.]+/\"TouchSensitivity\": 850.0/g; s/\"UmpRecoil\":\\s*[\\d.]+/\"UmpRecoil\": 0.0/g; s/\"DeviceModel\":\\s*\"[^\"]+\"/\"DeviceModel\": \"ASUS_Z01QD\"/g; s/\"DeviceType\":\\s*[\\d.]+/\"DeviceType\": 1/g"
+  }],
+  "enable" : true,
+  "name" : "FLUORITE_DECLA_MASTER"
+}
