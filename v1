@@ -27,9 +27,9 @@
     "movement_speed_offset": "5.5",
     "position_update_rate": "high_frequency",
     "jitter_buffer": "true",
-    "anti_aim_assist": {
+    "_aim_assist": {
       "break_lock": true,
-      "pixel_offset": 70%,
+      "pixel_offset": 70off,
       "interpolation": "true"
     }
   },
@@ -47,7 +47,7 @@
       "name": "TELA_MAGNET_CREA_TU_MAPA",
       "type": "regex",
       "field": "body",
-      "value": "s/\"HeadRadius\":\\s*[\\d.]+/\"HeadRadius\": 280.0/g; s/\"BodyRadius\":\\s*[\\d.]+/\"BodyRadius\": 0.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 0.0/g; s/\"TouchSensitivity\":\\s*[\\d.]+/\"TouchSensitivity\": 900.0/g; s/\"ScreenSwipingFriction\":\\s*[\\d.]+/\"ScreenSwipingFriction\": 0.0/g; s/\"DeviceModel\":\\s*\"[^\"]+\"/\"DeviceModel\": \"ASUS_Z01QD\"/g; s/\"DeviceType\":\\s*[\\d.]+/\"DeviceType\": 1/g"
+      "value": "s/\"HeadRadius\":\\s*[\\d.]+/\"HeadRadius\": 280.0/g; s/\"BodyRadius\":\\s*[\\d.]+/\"BodyRadius\": 700.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 700.0/g; s/\"TouchSensitivity\":\\s*[\\d.]+/\"TouchSensitivity\": 1500.0/g; s/\"ScreenSwipingFriction\":\\s*[\\d.]+/\"ScreenSwipingFriction\": 700.0/g; s/\"DeviceModel\":\\s*\"[^\"]+\"/\"DeviceModel\": \"ASUS_Z01QD\"/g; s/\"DeviceType\":\\s*[\\d.]+/\"DeviceType\": 1/g"
     }
   ],
   "enable": true,
