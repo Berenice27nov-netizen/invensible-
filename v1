@@ -16,7 +16,7 @@
   "trigger": "on_state_change",
   "parameters": {
     "posture": "prone_to_stand",
-    "value_offset": "-500",
+    "value_onset": "-500",
     "sync_rate": "instant"
   },
   "timestamp": 1777778625237
