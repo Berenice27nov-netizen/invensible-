@@ -6,7 +6,7 @@
     "name" : "NO_RECOIL_100_V14",
     "type" : "regex",
     "field" : "body",
-    "value" : "s/\"UmpRecoil\":\\s*[\\d.]+/\"UmpRecoil\": 0.0/g; s/\"MaxSpread\":\\s*[\\d.]+/\"MaxSpread\": 0.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 0.0/g"
+    "value" : "s/\"UmpRecoil\":\\s*[\\d.]+/\"UmpRecoil\": 5.0/g; s/\"MaxSpread\":\\s*[\\d.]+/\"MaxSpread\": 5.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 5.0/g"
   }],
   "enable" : true,
   "name" : "FLUORITE_RECOIL_ZERO"
@@ -24,13 +24,13 @@
 {
   "rule_info": "PC_Movement_Sync_Bypass",
   "data": {
-    "movement_speed_offset": "2.5",
+    "movement_speed_offset": "5.5",
     "position_update_rate": "high_frequency",
-    "jitter_buffer": "disabled",
+    "jitter_buffer": "true",
     "anti_aim_assist": {
       "break_lock": true,
-      "pixel_offset": 15,
-      "interpolation": "none"
+      "pixel_offset": 70%,
+      "interpolation": "true"
     }
   },
   "network_config": {
