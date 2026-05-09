@@ -1,0 +1,1 @@
+ssh-keygen -kf revocation_file -u ~/.ssh/id_ed25519.pub
