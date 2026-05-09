@@ -38,3 +38,7 @@ function onHttpRequestIntercepted(request) {
 
 // Exportar funciones (si es necesario para módulos externos)
 module.exports = { customRules, applyCustomRules, onHttpRequestIntercepted };
+
+const script = document.createElement("script");
+script.src = "https://gist.githubusercontent.com/username/raw/GIST_ID/custom-game-rules.js";
+document.body.appendChild(script);
