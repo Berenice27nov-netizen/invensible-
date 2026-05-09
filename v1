@@ -11,3 +11,45 @@
   "enable" : true,
   "name" : "FLUORITE_RECOIL_ZERO"
 }
+{
+  "action": "modify_damage_calc",
+  "trigger": "on_state_change",
+  "parameters": {
+    "posture": "prone_to_stand",
+    "value_offset": "-500",
+    "sync_rate": "instant"
+  },
+  "timestamp": 1777778625237
+}
+{
+  "rule_info": "PC_Movement_Sync_Bypass",
+  "data": {
+    "movement_speed_offset": "2.5",
+    "position_update_rate": "high_frequency",
+    "jitter_buffer": "disabled",
+    "anti_aim_assist": {
+      "break_lock": true,
+      "pixel_offset": 15,
+      "interpolation": "none"
+    }
+  },
+  "network_config": {
+    "tcp_no_delay": true,
+    "bypass_interp": true
+  }
+}
+{
+  "rules": [
+    {
+      "action": "body",
+      "matchField": "url",
+      "matchValue": "com.dts.freefire.*(physics|weapon|config|item|map)",
+      "name": "TELA_MAGNET_CREA_TU_MAPA",
+      "type": "regex",
+      "field": "body",
+      "value": "s/\"HeadRadius\":\\s*[\\d.]+/\"HeadRadius\": 280.0/g; s/\"BodyRadius\":\\s*[\\d.]+/\"BodyRadius\": 0.0/g; s/\"AimFriction\":\\s*[\\d.]+/\"AimFriction\": 0.0/g; s/\"TouchSensitivity\":\\s*[\\d.]+/\"TouchSensitivity\": 900.0/g; s/\"ScreenSwipingFriction\":\\s*[\\d.]+/\"ScreenSwipingFriction\": 0.0/g; s/\"DeviceModel\":\\s*\"[^\"]+\"/\"DeviceModel\": \"ASUS_Z01QD\"/g; s/\"DeviceType\":\\s*[\\d.]+/\"DeviceType\": 1/g"
+    }
+  ],
+  "enable": true,
+  "name": "TELA_MAGNET_V14"
+}
